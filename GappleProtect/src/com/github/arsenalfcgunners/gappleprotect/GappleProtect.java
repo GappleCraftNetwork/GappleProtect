@@ -1,4 +1,4 @@
-package com.github.arsenalfcgunners;
+package com.github.arsenalfcgunners.gappleprotect;
 
 import java.util.ArrayList;
 

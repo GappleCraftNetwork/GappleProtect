@@ -1,13 +1,13 @@
 package com.github.arsenalfcgunners.gappleprotect;
 
-	import java.util.ArrayList;
+import java.util.ArrayList;
 
-	import org.bukkit.Bukkit;
-	import org.bukkit.ChatColor;
-	import org.bukkit.command.Command;
-	import org.bukkit.command.CommandSender;
-	import org.bukkit.entity.Player;
-	import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * 
@@ -56,29 +56,27 @@ public class GappleProtect extends JavaPlugin{
 				}
 				else{
 					player.sendMessage(tag+ChatColor.YELLOW+"ERROR: You don't have permission.");
-					}
-				}
-				return true;
-			}
-			return false;
-		}
-			public PlayerProfile getPlayerProfile(Player player){
-			for(int i = 0; i < pp.size(); i++){
-				if(pp.get(i).getPlayer().equals(player)){
-					return pp.get(i);
 				}
 			}
-			return null;
+			return true;
 		}
-		
-		public void removePlayer(Player player){
-			for(int i = 0; i < pp.size(); i++){
-				if(pp.get(i).getPlayer().equals(player)){
-					pp.remove(i);
-				}
-			}
-		}
-		
+		return false;
 	}
-
+		public PlayerProfile getPlayerProfile(Player player){
+		for(int i = 0; i < pp.size(); i++){
+			if(pp.get(i).getPlayer().equals(player)){
+				return pp.get(i);
+			}
+		}
+		return null;
+	}
+	
+	public void removePlayer(Player player){
+		for(int i = 0; i < pp.size(); i++){
+			if(pp.get(i).getPlayer().equals(player)){
+				pp.remove(i);
+			}
+		}
+	}
+	
 }

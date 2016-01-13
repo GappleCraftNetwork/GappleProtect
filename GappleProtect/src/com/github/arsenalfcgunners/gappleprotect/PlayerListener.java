@@ -1,6 +1,5 @@
 package com.github.arsenalfcgunners.gappleprotect;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,7 +19,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerShearEntityEvent;
 
 public class PlayerListener implements Listener{
-	String tag = ChatColor.GRAY+"["+ChatColor.GOLD+"GappleProtect"+ChatColor.GRAY+"]+ "+ChatColor.YELLOW;
 	GappleProtect gp;
 	
 	public PlayerListener(GappleProtect plugin){
@@ -40,7 +38,7 @@ public class PlayerListener implements Listener{
 	
 	@EventHandler(priority = EventPriority.LOW)
 	public void onBedEnter(PlayerBedEnterEvent e){
-		e.getPlayer().sendMessage(tag+"Beds are disabled.");
+		e.getPlayer().sendMessage(gp.tag+"Beds are disabled.");
 		e.setCancelled(true);
 	}
 	
@@ -51,7 +49,7 @@ public class PlayerListener implements Listener{
 	
 	@EventHandler(priority = EventPriority.LOW)
 	public void onShear(PlayerShearEntityEvent e){
-		e.getPlayer().sendMessage(tag+"Shears are disabled.");
+		e.getPlayer().sendMessage(gp.tag+"Shears are disabled.");
 		e.setCancelled(true);
 	}
 	
@@ -59,7 +57,7 @@ public class PlayerListener implements Listener{
 	public void bucketFillEvent(PlayerBucketFillEvent e){
 		Player player = e.getPlayer();
 		if(!gp.getPlayerProfile(player).getBuildStatus()){
-			player.sendMessage(tag+"Buckets are disabled.");
+			player.sendMessage(gp.tag+"Buckets are disabled.");
 			e.setCancelled(true);
 		}
 	}
@@ -104,12 +102,12 @@ public class PlayerListener implements Listener{
 	    	}
 	        
 	        if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.getItemInHand().getType() == Material.WATER_BUCKET){
-				player.sendMessage(tag+"Buckets are disabled.");
+				player.sendMessage(gp.tag+"Buckets are disabled.");
 	        	e.setCancelled(true);
 	    	}
 	        
 	        if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.getItemInHand().getType() == Material.LAVA_BUCKET){
-				player.sendMessage(tag+"Buckets are disabled.");
+				player.sendMessage(gp.tag+"Buckets are disabled.");
 	        	e.setCancelled(true);
 	    	}
 		}

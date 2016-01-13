@@ -45,7 +45,7 @@ public class GappleProtect extends JavaPlugin{
 			Player player;
 			if(sender instanceof Player){
 				player = (Player) sender;
-				if(player.hasPermission("ffa.togglebuild")){
+				if(player.hasPermission("gp.togglebuild")){
 					getPlayerProfile(player).toggleBuild();
 					if(getPlayerProfile(player).getBuildStatus()){
 						player.sendMessage(tag+ChatColor.GREEN+"Building enabled.");

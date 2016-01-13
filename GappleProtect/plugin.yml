@@ -1,0 +1,11 @@
+name: GapplePotect
+main: com.github.arsenalfcgunners.gappleprotect.GappleProtect
+version: 1.1
+commands:
+   build:
+      description: Toggles between allowing players to break blocks and disallowing it.
+      usage: /<command>
+
+Permissions:
+  gp.togglebuild:
+    description: Allows the player to toggle building.

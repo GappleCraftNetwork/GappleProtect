@@ -14,7 +14,7 @@ public class InventoryListener implements Listener{
 		gp = plugin;
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
     public void onInventoryOpen(InventoryOpenEvent e){
 		if (e.getInventory().getType() == InventoryType.CHEST) {
     		e.setCancelled(true);

@@ -15,7 +15,7 @@ public class BlockListener implements Listener{
 		gp = plugin;
 	}
 	
-	@EventHandler(priority = EventPriority.LOW) 
+	@EventHandler(priority = EventPriority.LOWEST) 
 	public void onBlockPlace(BlockPlaceEvent e){
 		if(e.getBlock().getType() != Material.FIRE){
 			if(!gp.getPlayerProfile(e.getPlayer()).getBuildStatus()){
@@ -24,7 +24,7 @@ public class BlockListener implements Listener{
 		}
 	}
 	
-	@EventHandler(priority = EventPriority.LOW) 
+	@EventHandler(priority = EventPriority.LOWEST) 
 	public void onBlockBreak(BlockBreakEvent e) {
 		if(e.getBlock().getType() != Material.FIRE){
 	        if(!gp.getPlayerProfile(e.getPlayer()).getBuildStatus()){

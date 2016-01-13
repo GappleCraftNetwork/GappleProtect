@@ -18,7 +18,7 @@ public class EntityListener implements Listener{
 		gp = plugin;
 	}
 	
-	@EventHandler(priority = EventPriority.LOW) 
+	@EventHandler(priority = EventPriority.LOWEST) 
 	public void onArrowHit(ProjectileHitEvent e){
 		 if(e.getEntity() instanceof Arrow){
 			 Arrow arrow = (Arrow) e.getEntity();
@@ -26,7 +26,7 @@ public class EntityListener implements Listener{
 		 }
 	}
 	
-	@EventHandler(priority = EventPriority.LOW) 
+	@EventHandler(priority = EventPriority.LOWEST) 
 	public void onDoorBreak(EntityBreakDoorEvent e){
 		if(e.getEntity() instanceof Player){
 			Player player = (Player) e.getEntity();
@@ -40,12 +40,12 @@ public class EntityListener implements Listener{
 		}
 	}
 	
-	@EventHandler(priority = EventPriority.LOW) 
+	@EventHandler(priority = EventPriority.LOWEST) 
 	public void onExpolode(EntityExplodeEvent e){
 		e.setCancelled(true);
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void onFoodLevelChange (FoodLevelChangeEvent e) {
 	    if(e.getEntity() instanceof Player) {
 	        Player player = (Player)e.getEntity();

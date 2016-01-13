@@ -26,34 +26,34 @@ public class PlayerListener implements Listener{
 		gp = plugin;
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void onJoin(PlayerJoinEvent e){
 		gp.pp.add(new PlayerProfile(e.getPlayer(), gp));
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void onQuit(PlayerQuitEvent e){
 		gp.removePlayer(e.getPlayer());
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void onBedEnter(PlayerBedEnterEvent e){
 		e.getPlayer().sendMessage(gp.tag+"Beds are disabled.");
 		e.setCancelled(true);
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void onAchievement(PlayerAchievementAwardedEvent e){
 		e.setCancelled(true);
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void onShear(PlayerShearEntityEvent e){
 		e.getPlayer().sendMessage(gp.tag+"Shears are disabled.");
 		e.setCancelled(true);
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void bucketFillEvent(PlayerBucketFillEvent e){
 		Player player = e.getPlayer();
 		if(!gp.getPlayerProfile(player).getBuildStatus()){
@@ -62,12 +62,12 @@ public class PlayerListener implements Listener{
 		}
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void onDrop(PlayerDropItemEvent e){
 		e.setCancelled(true);
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void onPickUp(PlayerPickupItemEvent e){
 		Player player = e.getPlayer();
 		if(!gp.getPlayerProfile(player).getBuildStatus()){
@@ -75,17 +75,17 @@ public class PlayerListener implements Listener{
 		}
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void onXp(PlayerExpChangeEvent e){
 		e.getPlayer().setExp(0);
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void onFish(PlayerFishEvent e){
 		e.setCancelled(true);
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void onInteract(PlayerInteractEvent e){
 		Player player = e.getPlayer();
 		if(e.getAction() == Action.PHYSICAL && e.getClickedBlock().getType() == Material.SOIL){

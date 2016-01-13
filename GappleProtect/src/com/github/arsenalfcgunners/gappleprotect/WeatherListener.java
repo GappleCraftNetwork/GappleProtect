@@ -13,7 +13,7 @@ public class WeatherListener implements Listener{
 		gp = plugin;
 	}
 	
-	@EventHandler(priority = EventPriority.HIGHEST) 
+	@EventHandler(priority = EventPriority.LOWEST) 
 	public void onWeatherChange(WeatherChangeEvent e){
 		e.setCancelled(true);
 	}

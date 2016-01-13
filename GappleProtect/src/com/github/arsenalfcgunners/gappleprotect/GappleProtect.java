@@ -20,7 +20,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class GappleProtect extends JavaPlugin{
 	ArrayList<PlayerProfile> pp = new ArrayList<PlayerProfile>();
-	String tag = ChatColor.GRAY+"["+ChatColor.GOLD+"GappleProtect"+ChatColor.GRAY+"]+ "+ChatColor.YELLOW;
+	String tag = ChatColor.GRAY+"["+ChatColor.GOLD+"GappleProtect"+ChatColor.GRAY+"]"+ChatColor.YELLOW;
 
 	@Override
 	public void onEnable(){

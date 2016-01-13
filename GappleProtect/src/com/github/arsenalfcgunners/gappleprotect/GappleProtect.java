@@ -15,7 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @version 1.1
  * 
  * This plugin manages the world settings and protects the world. In the future it will
- * be made much more customizable.
+ * be made much more custimizable.
  *
  */
 public class GappleProtect extends JavaPlugin{

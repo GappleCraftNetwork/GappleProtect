@@ -9,7 +9,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerAchievementAwardedEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
-import org.bukkit.event.player.PlayerBucketEmptyEvent;
 import org.bukkit.event.player.PlayerBucketFillEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerExpChangeEvent;
@@ -65,14 +64,6 @@ public class PlayerListener implements Listener{
 		}
 	}
 	
-	public void bucketEmptyEvent(PlayerBucketEmptyEvent e){
-		Player player = e.getPlayer();
-		if(!gp.getPlayerProfile(player).getBuildStatus()){
-			player.sendMessage(tag+"Buckets are disabled.");
-			e.setCancelled(true);
-		}
-	}
-	
 	@EventHandler(priority = EventPriority.LOW)
 	public void onDrop(PlayerDropItemEvent e){
 		e.setCancelled(true);
@@ -109,6 +100,16 @@ public class PlayerListener implements Listener{
 	    	}
 	        
 	        if(e.getAction() == Action.RIGHT_CLICK_BLOCK && e.getClickedBlock().getType() == Material.FENCE_GATE){
+	        	e.setCancelled(true);
+	    	}
+	        
+	        if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.getItemInHand().getType() == Material.WATER_BUCKET){
+				player.sendMessage(tag+"Buckets are disabled.");
+	        	e.setCancelled(true);
+	    	}
+	        
+	        if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.getItemInHand().getType() == Material.LAVA_BUCKET){
+				player.sendMessage(tag+"Buckets are disabled.");
 	        	e.setCancelled(true);
 	    	}
 		}

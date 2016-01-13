@@ -1,6 +1,5 @@
 package com.github.arsenalfcgunners.gappleprotect;
 
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,7 +11,6 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 
 public class EntityListener implements Listener{
-	String tag = ChatColor.GRAY+"["+ChatColor.GOLD+"GappleProtect"+ChatColor.GRAY+"] ";
 	GappleProtect gp;
 	
 	public EntityListener(GappleProtect plugin){
@@ -33,7 +31,7 @@ public class EntityListener implements Listener{
 		if(e.getEntity() instanceof Player){
 			Player player = (Player) e.getEntity();
 			if(!gp.getPlayerProfile(player).getBuildStatus()){
-				player.sendMessage(tag+"You cannot break that.");
+				player.sendMessage(gp.tag+"You cannot break that.");
 				e.setCancelled(true);
 			}
 		}

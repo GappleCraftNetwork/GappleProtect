@@ -1,10 +1,12 @@
 package com.github.arsenalfcgunners.gappleprotect;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
 
 public class InventoryListener implements Listener{
 	GappleProtect gp;
@@ -16,24 +18,16 @@ public class InventoryListener implements Listener{
 	
 	@EventHandler(priority = EventPriority.LOWEST)
     public void onInventoryOpen(InventoryOpenEvent e){
-		if (e.getInventory().getType() == InventoryType.CHEST) {
-    		e.setCancelled(true);
+		if(e.getPlayer() instanceof Player){
+			Player player = (Player) e.getPlayer();
+			Inventory inv = e.getInventory();
+			
+			if (gp.inv.inventories.contains(inv.getType()) && !gp.getPlayerProfile(player).getBuildStatus()){
+				if(inv.getType() != InventoryType.CHEST || inv.getName().equals("container.chest")){
+					player.sendMessage(gp.tag+"You cannot open the inventory "+inv.getType().toString()+".");
+					e.setCancelled(true);
+				}
+			}
 		}
-   
-    	if (e.getInventory().getType() == InventoryType.ANVIL) {
-    		e.setCancelled(true);
-    	}
-   
-    	if (e.getInventory().getType() == InventoryType.WORKBENCH) {
-    		e.setCancelled(true);
-    	}
-    	
-    	if (e.getInventory().getType() == InventoryType.ENCHANTING) {
-    		e.setCancelled(true);
-    	}
-    	
-    	if (e.getInventory().getType() == InventoryType.FURNACE) {
-    		e.setCancelled(true);
-    	}
     }
 }

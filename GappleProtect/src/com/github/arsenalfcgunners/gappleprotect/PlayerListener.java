@@ -76,7 +76,8 @@ public class PlayerListener implements Listener{
 	
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onXp(PlayerExpChangeEvent e){
-		e.getPlayer().setTotalExperience(0);
+		e.setAmount(0);
+		e.getPlayer().setExp(0);
 	}
 	
 	@EventHandler(priority = EventPriority.LOWEST)

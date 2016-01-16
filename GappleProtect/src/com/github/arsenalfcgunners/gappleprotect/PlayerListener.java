@@ -11,7 +11,6 @@ import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.event.player.PlayerBucketFillEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerExpChangeEvent;
-import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
@@ -77,12 +76,7 @@ public class PlayerListener implements Listener{
 	
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onXp(PlayerExpChangeEvent e){
-		e.getPlayer().setExp(0);
-	}
-	
-	@EventHandler(priority = EventPriority.LOWEST)
-	public void onFish(PlayerFishEvent e){
-		e.setCancelled(true);
+		e.getPlayer().setTotalExperience(0);
 	}
 	
 	@EventHandler(priority = EventPriority.LOWEST)

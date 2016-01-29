@@ -28,11 +28,13 @@ public class PlayerListener implements Listener{
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onJoin(PlayerJoinEvent e){
 		gp.pp.add(new PlayerProfile(e.getPlayer(), gp));
+		e.setJoinMessage(null);
 	}
 	
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onQuit(PlayerQuitEvent e){
 		gp.removePlayer(e.getPlayer());
+		e.setQuitMessage(null);
 	}
 	
 	@EventHandler(priority = EventPriority.LOWEST)

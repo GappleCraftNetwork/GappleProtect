@@ -27,7 +27,7 @@ public class PlayerListener implements Listener{
 	
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onJoin(PlayerJoinEvent e){
-		gp.pp.add(new PlayerProfile(e.getPlayer(), gp));
+		gp.getProfiles().add(new PlayerProfile(e.getPlayer(), gp));
 		e.setJoinMessage(null);
 	}
 	
@@ -39,7 +39,7 @@ public class PlayerListener implements Listener{
 	
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onBedEnter(PlayerBedEnterEvent e){
-		e.getPlayer().sendMessage(gp.tag+"Beds are disabled.");
+		e.getPlayer().sendMessage(gp.getTag()+"Beds are disabled.");
 		e.setCancelled(true);
 	}
 	
@@ -50,7 +50,7 @@ public class PlayerListener implements Listener{
 	
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onShear(PlayerShearEntityEvent e){
-		e.getPlayer().sendMessage(gp.tag+"Shears are disabled.");
+		e.getPlayer().sendMessage(gp.getTag()+"Shears are disabled.");
 		e.setCancelled(true);
 	}
 	
@@ -58,7 +58,7 @@ public class PlayerListener implements Listener{
 	public void bucketFillEvent(PlayerBucketFillEvent e){
 		Player player = e.getPlayer();
 		if(!gp.getPlayerProfile(player).getBuildStatus()){
-			player.sendMessage(gp.tag+"Buckets are disabled.");
+			player.sendMessage(gp.getTag()+"Buckets are disabled.");
 			e.setCancelled(true);
 		}
 	}
@@ -99,12 +99,12 @@ public class PlayerListener implements Listener{
 	    	}
 	        
 	        if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.getItemInHand().getType() == Material.WATER_BUCKET){
-				player.sendMessage(gp.tag+"Buckets are disabled.");
+				player.sendMessage(gp.getTag()+"Buckets are disabled.");
 	        	e.setCancelled(true);
 	    	}
 	        
 	        if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.getItemInHand().getType() == Material.LAVA_BUCKET){
-				player.sendMessage(gp.tag+"Buckets are disabled.");
+				player.sendMessage(gp.getTag()+"Buckets are disabled.");
 	        	e.setCancelled(true);
 	    	}
 		}

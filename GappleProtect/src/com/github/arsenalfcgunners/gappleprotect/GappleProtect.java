@@ -19,12 +19,15 @@ import org.bukkit.plugin.java.JavaPlugin;
  *
  */
 public class GappleProtect extends JavaPlugin{
-	ArrayList<PlayerProfile> pp = new ArrayList<PlayerProfile>();
-	String tag = ChatColor.GRAY+"["+ChatColor.GOLD+"GappleProtect"+ChatColor.GRAY+"] "+ChatColor.YELLOW;
-	InventoryManager inv;
+	private ArrayList<PlayerProfile> pp;
+	private String tag;
+	private InventoryManager inv;
 	
 	@Override
 	public void onEnable(){
+		tag = ChatColor.GRAY+"["+ChatColor.GOLD+"GappleProtect"+ChatColor.GRAY+"] "+ChatColor.YELLOW;
+		pp = new ArrayList<PlayerProfile>();
+				
 		for(Player player: Bukkit.getOnlinePlayers()){
 			pp.add(new PlayerProfile(player, this));
 		}
@@ -80,5 +83,17 @@ public class GappleProtect extends JavaPlugin{
 				pp.remove(i);
 			}
 		}
+	}
+	
+	public String getTag(){
+		return tag;
+	}
+	
+	public InventoryManager getInvManager(){
+		return inv;
+	}
+	
+	public ArrayList<PlayerProfile> getProfiles(){
+		return pp;
 	}
 }

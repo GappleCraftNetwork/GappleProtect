@@ -13,7 +13,7 @@ import org.bukkit.event.block.BlockIgniteEvent.IgniteCause;
 import org.bukkit.event.block.BlockPlaceEvent;
 
 public class BlockListener implements Listener{
-	GappleProtect gp;
+	private GappleProtect gp;
 	
 	public BlockListener(GappleProtect plugin){
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);

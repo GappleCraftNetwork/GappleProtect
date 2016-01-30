@@ -11,7 +11,7 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 
 public class EntityListener implements Listener{
-	GappleProtect gp;
+	private GappleProtect gp;
 	
 	public EntityListener(GappleProtect plugin){
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
@@ -31,7 +31,7 @@ public class EntityListener implements Listener{
 		if(e.getEntity() instanceof Player){
 			Player player = (Player) e.getEntity();
 			if(!gp.getPlayerProfile(player).getBuildStatus()){
-				player.sendMessage(gp.tag+"You cannot break that.");
+				player.sendMessage(gp.getTag()+"You cannot break that.");
 				e.setCancelled(true);
 			}
 		}

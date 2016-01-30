@@ -22,9 +22,9 @@ public class InventoryListener implements Listener{
 			Player player = (Player) e.getPlayer();
 			Inventory inv = e.getInventory();
 			
-			if (gp.inv.inventories.contains(inv.getType()) && !gp.getPlayerProfile(player).getBuildStatus()){
+			if (gp.getInvManager().inventories.contains(inv.getType()) && !gp.getPlayerProfile(player).getBuildStatus()){
 				if(inv.getType() != InventoryType.CHEST || inv.getName().equals("container.chest")){
-					player.sendMessage(gp.tag+"You cannot open the inventory "+inv.getType().toString()+".");
+					player.sendMessage(gp.getTag()+"You cannot open the inventory "+inv.getType().toString()+".");
 					e.setCancelled(true);
 				}
 			}

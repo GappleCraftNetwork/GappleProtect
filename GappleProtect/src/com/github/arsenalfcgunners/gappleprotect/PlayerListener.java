@@ -98,12 +98,12 @@ public class PlayerListener implements Listener{
 	        	e.setCancelled(true);
 	    	}
 	        
-	        if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.getItemInHand().getType() == Material.WATER_BUCKET){
+	        if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.getInventory().getItemInMainHand().getType() == Material.WATER_BUCKET){
 				player.sendMessage(gp.getTag()+"Buckets are disabled.");
 	        	e.setCancelled(true);
 	    	}
 	        
-	        if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.getItemInHand().getType() == Material.LAVA_BUCKET){
+	        if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.getInventory().getItemInMainHand().getType() == Material.LAVA_BUCKET){
 				player.sendMessage(gp.getTag()+"Buckets are disabled.");
 	        	e.setCancelled(true);
 	    	}
